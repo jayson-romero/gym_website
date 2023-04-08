@@ -2,3 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+.searc-btn {
+   color: white ;
+   font-weight: 600;
+   background: red;
+   border: 2px solid transparent;
+}
+
+.searc-btn:hover {
+   color: red ;
+   border: 2px solid red;
+   background: white;
+}

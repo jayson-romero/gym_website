@@ -9,14 +9,15 @@ import  ExerciseDetails  from './pages/ExerciseDetails';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
+import styles from './style'
 
 
 function App() {
 
 
   return (
-    <Box className="App" width="400px" sx={{width: {xl: '1488px'}}} m="auto">
-        <Navbar/>
+    <Box className={`${styles.paddingX} App`}>
+        <Navbar className={`${styles.padding} ${styles.boxWidth}`}/>
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/exercise/:id" element={<ExerciseDetails/>}/>
