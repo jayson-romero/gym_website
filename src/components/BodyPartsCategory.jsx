@@ -2,7 +2,10 @@ import React from 'react'
 import BodyPart from './BodyPart';
 
 
+
 const BodyPartsCategory = ({data, bodyPart, setBodyPart}) => {
+
+
   return (
     <div className='flex'>
        {data.map((item) => 

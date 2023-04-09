@@ -1,7 +1,10 @@
-import React, {useEffect, useState } from 'react'
+import React, {useEffect, useState , useRef  } from 'react'
 
 import {exercisesOptions, fetchData} from '../utils/fetchData';
 import BodyPartsCategory from './BodyPartsCategory';
+
+import toright from '../assets/icons/right-arrow.png'
+import toleft from '../assets/icons/left-arrow.png'
 
 const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
 
@@ -36,6 +39,22 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
         setExercises(searchExercises)
       }
     }
+
+    const containerRef = useRef(null);
+  
+    const handleNextClick = () => {
+      containerRef.current.scrollTo({
+        left: containerRef.current.scrollLeft + 270,
+        behavior: 'smooth'
+      });
+    };
+
+    const handlebackClick = () => {
+      containerRef.current.scrollTo({
+        left: containerRef.current.scrollLeft - 270,
+        behavior: 'smooth'
+      });
+    };
  
   return (
     <div className='mt-[20px] md:mt-[40px] flex flex-col justify-center items-center'>
@@ -59,7 +78,7 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
             </button>
         </div> 
 
-        <div className='overflow-x-scroll max-w-[900px] '>
+        <div className='overflow-hidden max-w-[270px] md:max-w-[650px] lg:max-w-[1200px] ' ref={containerRef}>
           <BodyPartsCategory 
           data={bodyParts}
           bodyPart={bodyPart}
@@ -67,6 +86,14 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
           />
         </div>
 
+        <div className='flex flex-row-reverse gap-[10px] '>
+          <button onClick={handleNextClick} className="border border-slate-950 hover:border hover:border-red p-[5px]">
+            <img src={toright} alt="right arrow" />
+          </button>
+          <button onClick={handlebackClick} className="border border-slate-950 hover:border hover:border-red p-[5px]">
+            <img src={toleft} alt="left arrow"  />
+          </button>
+        </div>
     </div>
   )
 }

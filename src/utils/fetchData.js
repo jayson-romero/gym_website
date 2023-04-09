@@ -1,11 +1,12 @@
 
+
 //from RapidIPI
 export const exercisesOptions = {
    method: 'GET',
    headers: {
-     'X-RapidAPI-Key': 'ea5675cce3mshed9dd2ef422b6aep1f483cjsn23705e990485',
-     'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
-   }
+     'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
+     'X-RapidAPI-Key': import.meta.env.VITE_REACT_APP_RAPID_API_KEY
+   },
  };
 
  //feth data function
